@@ -307,7 +307,7 @@ function detectCollisions(b) {
     }
     var bc = bottomCell(cc);
     if (bc.isWall && dy > 0 && (d = bc.y - b.y) <= sz) {
-        //bounceY(b, sz, d, dy);
+        
         if (!((point[0] <= b.x) && (b.x <= point[0] + 140)) && (b.y >= h - 30)) {
             text = "Game over !";
             textWidth = 138;
@@ -325,7 +325,7 @@ function detectCollisions(b) {
               .attr("y", h / 2)
               .attr("class", "bigText")
               .text(text);
-
+		d3.select(this).style("opacity", 1);
             force.stop();
         }
     }
@@ -334,8 +334,7 @@ function detectCollisions(b) {
         bounceX(b, sz, d, dx);
     }
     if (((point[0] <= b.x) && (b.x <= point[0] + 140)) && (b.y >= h - 30)) {
-        console.log("hyyyy:" + b.y)
-
+        
         bounceX(b, sz, d, dx);
         bounceY(b, sz, d, dy);
     }
@@ -423,10 +422,7 @@ function detectCollisions(b) {
 
     // ball collision
     svg.selectAll(".ball").each(function (b2) {
-        //if(b.y>=h-30){console.log("hiii")}
-        if (((point[0] <= b.x) && (b.x <= point[0] + 140)) && (b.y >= h - 30)) {
-            console.log("hyyyy")
-        }
+
         if (b.id == b2.id) {
             return;
         }
