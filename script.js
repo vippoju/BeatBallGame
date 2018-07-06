@@ -22,7 +22,7 @@ var w = 960,
   ssz = sz * sz,
   v = 2,
   n = level + 1,
-  t = 1000;
+  t = 200;
 
 var rows = Math.ceil(h / sz);
 var cols = Math.ceil(w / sz);
